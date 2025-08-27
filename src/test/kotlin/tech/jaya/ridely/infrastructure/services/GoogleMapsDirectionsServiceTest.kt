@@ -22,7 +22,7 @@ class GoogleMapsDirectionsServiceTest {
     @Autowired
     private lateinit var server: MockRestServiceServer
 
-    private val apiKey = "AIzaSyBhwQ8NV9v6SZQu7KhvJt7sr19YFzmrKHk"
+    private val apiKey = "google_api_key_aqui"
 
     @BeforeEach
     fun setup() {

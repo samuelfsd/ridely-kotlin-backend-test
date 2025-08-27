@@ -2,6 +2,7 @@ package tech.jaya.ridely.application.useCases.rides.processRide
 
 import jakarta.transaction.Transactional
 import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.data.geo.Circle
 import org.springframework.data.geo.Distance
 import org.springframework.data.geo.Metrics
@@ -22,8 +23,9 @@ class ProcessRideRequestUseCaseImpl(
     private val rideRepo: RideRepo,
     private val passengerRepo: PassengerRepo,
     private val redisTemplate: RedisTemplate<String, String>,
-    private val logger: Logger,
 ) : ProcessRideRequestUseCase {
+
+    private val logger: Logger = LoggerFactory.getLogger(ProcessRideRequestUseCaseImpl::class.java)
 
     @Transactional
     override fun execute(request: RequestDriver) {

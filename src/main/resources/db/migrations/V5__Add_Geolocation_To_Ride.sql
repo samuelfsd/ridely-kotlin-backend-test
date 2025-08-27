@@ -5,3 +5,5 @@ ALTER TABLE ride
     ADD COLUMN pick_up_longitude DOUBLE PRECISION NOT NULL,
     ADD COLUMN drop_off_latitude DOUBLE PRECISION NOT NULL,
     ADD COLUMN drop_off_longitude DOUBLE PRECISION NOT NULL;
+
+CREATE SPATIAL INDEX idx_ride_pickup ON ride(pick_up_latitude, pick_up_longitude);

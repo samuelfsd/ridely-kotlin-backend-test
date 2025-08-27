@@ -11,3 +11,11 @@ services:
       MYSQL_PASSWORD: ${DATABASE_PASSWORD:-ridely@123}
     ports:
       - ${DATABASE_PORT:-3306}:3306
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "${REDIS_PORT}:6379"
+    command:
+      redis-server --requirepass ${REDIS_PASSWORD}

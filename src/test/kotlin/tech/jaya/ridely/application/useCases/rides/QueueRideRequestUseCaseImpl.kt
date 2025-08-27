@@ -29,7 +29,7 @@ class QueueRideRequestUseCaseImplTest {
     @Test
     fun `execute should add ride request to redis queue and return processing status`() {
         val request = RequestDriver(
-            passenger = PassengerRequest(name = "Test Passenger", email = "test@test.com"),
+            passenger = PassengerRequest(name = "Teste José", email = "jose@gmail.com"),
             pickUp = LocationDto(address = "Start", latitude = 1.0, longitude = 1.0),
             dropOff = LocationDto(address = "End", latitude = 2.0, longitude = 2.0)
         )

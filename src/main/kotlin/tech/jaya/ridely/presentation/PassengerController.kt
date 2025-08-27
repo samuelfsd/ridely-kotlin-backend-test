@@ -7,7 +7,7 @@ import tech.jaya.ridely.application.useCases.passengers.createPassenger.CreatePa
 import tech.jaya.ridely.application.useCases.passengers.deletePassenger.DeletePassengerUseCase
 import tech.jaya.ridely.application.useCases.passengers.getPassenger.GetPassengerUseCase
 import tech.jaya.ridely.domain.dtos.PassengerCreation
-import tech.jaya.ridely.domain.dtos.PassengerResponse
+import tech.jaya.ridely.domain.dtos.PassengerCreationResponse
 
 @RestController
 @RequestMapping("/passengers")
@@ -21,7 +21,7 @@ class PassengerController(
     fun create(
         @RequestBody passengerCreation: PassengerCreation,
         uriBuilder: UriComponentsBuilder
-    ): ResponseEntity<PassengerResponse> {
+    ): ResponseEntity<PassengerCreationResponse> {
         val passengerResponse = createPassengerUseCase.execute(passengerCreation)
 
         val uri = uriBuilder.path("/passengers/${passengerResponse.id}").build().toUri()
@@ -29,7 +29,7 @@ class PassengerController(
     }
 
     @GetMapping("/{id}")
-    fun getPassenger(@PathVariable id: Long): ResponseEntity<PassengerResponse> {
+    fun getPassenger(@PathVariable id: Long): ResponseEntity<PassengerCreationResponse> {
         val passengerResponse = getPassengerUseCase.execute(id)
         return ResponseEntity.ok(passengerResponse)
     }
